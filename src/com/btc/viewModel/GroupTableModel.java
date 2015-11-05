@@ -16,6 +16,9 @@ public class GroupTableModel extends AbstractTableModel {
 	private List<Group> groups;
 	private GroupRepository repositoty;
 	
+	
+	
+	
 	public GroupTableModel(GroupRepository repository) {
 		this.repositoty = repository;
 		this.groups = repositoty.getList();
@@ -77,6 +80,18 @@ public class GroupTableModel extends AbstractTableModel {
 		Group accountType = groups.get(row);
 		if (col == 0) return accountType.name;
 		return "Error";
+	}
+	
+	public void clearAll() {
+		try {
+		for (int i = 0; i < groups.size(); i++) {
+			fireTableRowsDeleted(i, i);
+			
+		}
+		groups.clear();
+		} catch (Exception exception) {
+			
+		}
 	}
 
 	

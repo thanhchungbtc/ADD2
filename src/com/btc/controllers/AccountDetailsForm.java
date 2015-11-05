@@ -45,7 +45,6 @@ public class AccountDetailsForm extends JDialog {
 	private JTextField txtUserName;
 	private JTextField txtURL;
 	
-
 	private String password;
 	private boolean viewing = false;
 	// must set

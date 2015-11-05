@@ -19,6 +19,26 @@ public class AccountRepositoty {
 	private List<Account> accounts;
 	private Connection connection;
 	GroupRepository groupRepository;
+	public static String getPasswordFromDataBase() {
+		String sql = "SELECT password FROM SECRET";	
+		Connection conn = null;
+        try {
+          conn = ConnectionUtils.getConnection();
+          Statement st = conn.createStatement();
+  		ResultSet resultSet = st.executeQuery(sql);
+  		
+  		String result = resultSet.getString(1);
+  		st.close();
+  		conn.close();
+  		return result;
+        } catch (ClassNotFoundException ex) {
+          Logger.getLogger(GroupRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+	}
 	
 	public AccountRepositoty(int groupID ) {
 		accounts = new LinkedList<Account>();

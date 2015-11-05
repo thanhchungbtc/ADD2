@@ -19,5 +19,6 @@ public class DialogHelpers {
 	
 	public static String showInPutDialog(String title, Object message) {
 		return JOptionPane.showInputDialog(null, message, title, 1);
+		
 	}
 }
